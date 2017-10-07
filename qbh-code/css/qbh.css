@@ -66,6 +66,27 @@
       z-index: 10;
   }
 
+  /* 继续往下 */
+  .down {
+      position: fixed;
+      bottom: 5%;
+      right: 5%;
+      z-index: 99;
+      animation: down 0.8s ease-in-out infinite;
+      display: none;
+  }
+  @keyframes down{
+      0% {
+          bottom: 5%;
+      }
+      50% {
+          bottom: 10%;
+      }
+      100% {
+          bottom: 5%;
+      }
+  }
+
   /* 第一屏 */
   .qbh-title {
       background:url("../image/qbh-title-bg.png") no-repeat center bottom;
@@ -219,10 +240,19 @@
       display: none;
   }
 
+  .qbh-buy .qbh-buy-list-sofa {
+    position: absolute;
+    bottom: 200px;
+    right: 377px;
+    width: 204px;
+    display: none;
+  }
   /* 第四屏 */
   .qbh-info {
       background: url("../image/qbh-info-bg.png") no-repeat center bottom;
       position: relative;
+      /* background-color: red; */
+      
   }
   .qbh-info .qbh-info-cloud {
       position: absolute;
@@ -283,4 +313,215 @@
       left: 50px;
       opacity: 0;
   }
+
+  /* 第五屏 */
+  .qbh-payment {
+      background: url("../image/qbh-payment-bg.png");
+      position: relative;
+  }
+  .qbh-payment .qbh-payment-font {
+      position: absolute;
+      top: 0;
+      left: 20%;
+  }
+  .qbh-payment .qbh-payment-cards {
+      position: absolute;
+      bottom: 200px;
+      left: 20%;
+      z-index: 7;
+  }
+  .qbh-payment .qbh-payment-bill {
+      position: absolute;
+      bottom: 270px;
+      left: 27%;
+      /* z-index: 10; */
+  }
+  .qbh-payment .qbh-payment-rotate-sofa-start {
+      position: absolute;
+      bottom: 496px;
+      left: 25%;
+      display: none;
+  }
+  .qbh-payment .qbh-payment-rotate-sofa-end {
+      position: absolute;
+      left: 25%;
+      bottom: 170px;
+      /* bottom: 70px; */
+      z-index: 5;
+  }
+  .qbh-payment .qbh-payment-hands {
+      position: absolute;
+      right: 24%;
+      bottom: -375px;
+      z-index: 10;
+      display: none;
+  }
+  .qbh-payment .qbh-payment-mouse-start,.qbh-payment .qbh-payment-mouse-end {
+      position: absolute;
+      right: 20%;
+      bottom: 200px;
+  } 
+
+  .qbh-payment .qbh-payment-mouse-end {
+      opacity: 0;
+  }
+
+  .qbh-payment .qbh-payment-rotate-sofa-continue {
+      position: absolute;
+      bottom: 70px;
+      left: 25%;
+      z-index: 1;
+      display: none;
+      /* bottom: -243px; */
+      /* width: 100px; */
+  }
   
+  /* 第六屏 */
+  .qbh-delivery {
+      background: url("../image/qbh-delivery-bg.png") no-repeat 25% 100%;
+      position: relative;
+  }
+  .qbh-delivery .qbh-delivery-cloud-one {
+      position: absolute;
+      bottom: 500px;
+      right: 20%;
+      animation: deliveryCloud 30s linear infinite;
+  }
+  .qbh-delivery .qbh-delivery-cloud-two {
+    position: absolute;
+    bottom: 550px;
+    right: 20%;
+    animation: deliveryCloud 50s linear infinite;
+ }
+ @keyframes deliveryCloud {
+    0% {
+        right: 20%;
+    }
+    50% {
+        right: 30%;
+    }
+    100% {
+        right: 20%;
+    }
+ }
+ .qbh-delivery .qbh-delivery-box {
+     position: absolute;
+     left: 0;
+     bottom: 400px;
+     /* 第一阶段 */
+     /* left: 317px; */
+     /* bottom: 435px; */
+     z-index: 2;
+     display: none;
+
+     /* 第二阶段 */
+     /* left: 485px; */
+     /* bottom: 56px; */
+     /* width: 40px; */
+ }
+ .qbh-delivery .qbh-delivery-truck {
+     position: absolute;
+     left: 400px;
+     bottom: 0;
+     z-index: 3;
+ }
+ .qbh-delivery .qbh-delivery-font-start,.qbh-delivery .qbh-delivery-font-end {
+    position: absolute;
+    bottom: 479px;
+    left: 28%;
+ }
+ .qbh-delivery .qbh-delivery-font-end {
+    opacity: 0;
+ }
+ .qbh-delivery .qbh-delivery-deliveryman {
+     position: absolute;
+     bottom: 0;
+     right: 900px;
+     width: 0;
+ }
+ .qbh-delivery .qbh-delivery-door{
+     position: absolute;
+     right: 284px;
+     bottom: 117px;
+     display: none;
+ }
+ .qbh-delivery .qbh-delivery-buyer{
+     position: absolute;
+     right: 400px;
+     bottom: 117px;
+     width: 0;
+ }
+ .qbh-delivery .qbh-delivery-shouhuo {
+     position: absolute;
+     top: 122px;
+     left: 720px;
+     display: none;
+ }
+ .qbh-delivery .qbh-delivery-shangjia ,.qbh-delivery .qbh-delivery-truck-font{
+    position: absolute;
+    bottom: 106px;
+    left: 602px; 
+    opacity: 0;
+ }
+
+ /* 第七屏 */
+ .qbh-appraise {
+     background: url("../image/qbh-appraise-bg.png") no-repeat center bottom;
+     position: relative;
+ }
+ .qbh-appraise .qbh-appraise-star {
+     position: absolute;
+     left: 470px;
+     bottom: 445px;
+     width: 0;
+     height: 13px;
+     /* 取消inline-block间间距 */
+     font-size: 0;
+     overflow: hidden;
+ }  
+ .qbh-appraise .qbh-appraise-star img {
+    display: inline-block;
+    margin-left: 6px;
+ }
+ .qbh-appraise .qbh-appraise-haoping {
+     position: absolute;
+     left: 470px;
+     bottom: 382px;
+     width: 0px;
+     height: 40px;
+     display: none;
+ }
+
+ /* 第八屏 */
+ .qbh-shopping {
+     background-image: url("../image/qbh-shopping-bg.png");
+     position: relative;
+     z-index: 12;
+
+ }
+ .qbh-shopping .qbh-shopping-start,.qbh-shopping .qbh-shopping-dong{
+    position: absolute;
+    bottom: 365px;
+    left: 50%;
+    margin-left: -195px;
+    width: 389px;
+ }     
+ .qbh-shopping .qbh-shopping-dong {
+    display: none;
+ }
+    
+ .qbh-shopping .qbh-shopping-again {
+     position: absolute;
+     bottom: 403px;
+     left: 50%;
+     margin-left: 240px;
+ }
+ .qbh-shopping .qbh-shopping-hands {
+     position: absolute;
+     z-index: 999;
+ }
+
+
+
+
+    
