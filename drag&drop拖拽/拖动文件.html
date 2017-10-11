@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            width: 500px;
+            margin: 50px auto;
+        }
+        #drop_area {
+            width: 100%;
+            height: 100px;
+            border: 3px dashed silver;
+            line-height: 100px;
+            text-align: center;
+            font-style: 36px;
+            color:#d3d3d3;
+        }
+        #preview {
+            width: 500px;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        window.onload = function (){
+            document.addEventListener('dragover',function(e){
+                e.preventDefault();
+                // 在dragover的时候组织浏览器显示或打开图片及文件的的默认事件 
+
+            })
+
+            var dropArea = document.querySelector('#drop_area');
+            dropArea.addEventListener('drop',function(e){
+                e.preventDefault();
+                //文件信息
+                var files = e.dataTransfer.files[0];
+                console.log(files);
+                var filereader = new FileReader();
+                filereader.readAsText(files);
+                filereader.onload = function(){
+                    console.log(filereader.result);
+                    document.getElementById("preview").innerHTML = filereader.result;
+                }
+
+            })
+        }
+    </script>   
+</head>
+<body>
+    <div class="main">
+        <div class="demo">
+            <div id="drop_area">将文件拖动到这里</div>
+            <div id="preview"></div>
+        </div>
+    </div>
+</body>
+</html>

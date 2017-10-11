@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽</title>
+    <style>
+        html,body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* 拖拽元素 */
+        .drag {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color:purple;
+        }
+        /* 目标元素 */
+        .target {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            width: 500px;
+            height: 500px;
+            border:1px solid #000;
+        }
+    </style>    
+</head>
+<body>
+    <div class="drag" id="dragElement" draggable="true"></div>
+    <!-- 目标元素 -->
+    <div class="target"></div>
+    <script>
+        var oDrag = document.querySelector('.drag');
+        var oTarget = document.querySelector('.target');
+
+        //拖拽元素
+        //当鼠标按下开始拖拽的时候触发的事件 dragstart
+        oDrag.addEventListener('dragstart',function(ev){
+            ev.dataTransfer.setData('id',this.id);
+            console.log('拖拽');
+        })
+
+        //当鼠标拿着拖拽元素运动过程中不断触发的事件drag
+        oDrag.addEventListener('drag',function(){
+
+        })
+
+        //当鼠标松开后，拖拽元素被松开 触发 dragend
+        oDrag.addEventListener('dragend',function(){
+            console.log('拖拽结束');
+        })
+
+        //目标元素
+        //当拖拽元素进入目标元素触发 dragenter()
+        oTarget.addEventListener('dragenter',function(){
+            console.log('拖拽进入目标元素'); 
+        })
+
+        //当拖拽元素在目标元素上，会不停触发
+        oTarget.addEventListener('dragover',function(e){
+          // 在dragover的时候组织浏览器显示或打开图片及文件的的默认事件 
+            e.preventDefault();
+            console.log('拖拽元素在目标元素上');
+        })
+
+        //当拖拽元素放在目标元素上时，触发 drop事件
+        oTarget.addEventListener('drop',function(ev){
+            var id = ev.dataTransfer.getData('id');
+            this.appendChild(document.getElementById(id));
+            console.log('拖拽元素放下');
+        })
+    </script>
+</body>
+</html>
