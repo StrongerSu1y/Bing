@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button class="one">one</button>
+    <button class="two">two</button>
+    <script>
+        var one = document.querySelector(".one");
+        var two = document.querySelector(".two");
+
+        one.onclick = function(){
+            document.body.style.backgroundColor = 'red';
+            window.localStorage.setItem('color','red');
+        }
+        two.onclick = function(){
+            document.body.style.backgroundColor = 'pink';
+            window.localStorage.setItem('color','pink');
+        }
+
+        //当html所有东西加载完
+        window.onload = function(){
+            document.body.style.backgroundColor = window.localStorage.getItem('color');
+        }
+    </script>   
+</body>
+</html>

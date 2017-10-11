@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage</title>
+</head>
+<body>
+    <script>
+        //添加数据
+        window.localStorage.setItem("name","胖虎");
+        window.localStorage.setItem("age",11);
+        window.localStorage.setItem("gender",true);
+        //获取数据
+        var name = window.localStorage.getItem('name');
+        console.log(name);
+        //通过索引获取key
+        var key = window.localStorage.key(3);
+        console.log(key);
+
+        //移除
+        window.localStorage.removeItem("age");
+
+        //清除
+        window.localStorage.clear();
+    </script>
+</body>
+</html>
