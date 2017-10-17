@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 172px;
+            background: red;
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="text" id="ipt">
+    <div id="box"></div>
+    <script src="./jquery.js"></script>
+    <script>
+        // oninput事件监听用户输入内容
+        $('input').on("input", function () {
+            // 获取用户输入的内容
+            var val = document.getElementById("ipt").value;
+            // 创建浏览器对象
+            var xhr = new XMLHttpRequest();
+            // 请求行
+            xhr.open("get", "1.php?data=" + val);
+            // 请求主体
+            xhr.send(null);
+
+            // 响应监视
+            xhr.onreadystatechange = function () {
+                // 打印监视状态
+                // console.log(xhr.readyState);
+                // console.log(xhr.status);
+                //，满足条件就执行下边的代码
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // 获取数据展示的盒子
+                    var box = document.querySelector("#box");
+                    // 因为后台返回的数据是json格式的我们要转换成dom对象
+                    var data = JSON.parse(xhr.responseText);
+                    // 这样的数据展示不是我们想要的，是一条一条的展示数据
+                    // box.innerHTML = data;
+                    // 不想让每次数据重叠显示，所以在遍历前进行了清空
+                    box.innerHTML = "";
+                    // 遍历后台拿回来的数据，动态创建li 标签，最后把li标签添加到div中
+                    for (var i = 0; i < data.length; i++) {
+                        var li = document.createElement("li");
+                        li.innerHTML = data[i];
+                        box.appendChild(li);
+                    }
+                }
+
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

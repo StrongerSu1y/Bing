@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./libs/jquery.min.js"></script>
+    <script src="./libs/template-web.js"></script>
+</head>
+
+<body>
+    <input id="inp" type="text" name="" value="">
+
+    <div id="box">
+
+    </div>
+
+    <script type="text/template" id="tp">
+        {{ each result }}
+
+        <li> {{$value.word}}</li>
+        {{ /each }}
+    </script>
+    <script>
+        $('input').on('input', function() {
+            $.ajax({
+                url: "https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=" + $(this).val(),
+                dataType: "jsonp",
+                success: function(data) {
+                    console.log(data)
+
+                    // 要求 data  是一个 对象 {键值对}
+                    // var html = template('tp', data);
+                    // console.log(html);
+
+                    // $('#box').html(html)
+
+                    //   ``
+                    var lis = '';
+                    for (var i = 0; i < data.result.length; i++) {
+                        // lis += `
+                        // <li>${ data.result[i].word} </li>
+
+                        // `
+
+                        lis += '<li>' + data.result[i].word + '</li>'
+                    }
+                    $('#box').html(lis)
+                        // console.log(lis)
+
+
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

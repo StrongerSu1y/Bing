@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./libs/jquery.min.js"></script>
+    <!--<script src="./libs/artTemplate-master/dist/template-native.js"></script>-->
+    <script src="./libs/template-web.js"></script>
+</head>
+
+<body>
+    <input type="text" name="" value="">
+
+    <div id="box"></div>
+    <script type="text/template" id="tmp">
+        <% for(var i = 0 ; i < result.length;i++){ %>
+            <li>
+                <%= result[i].word %>
+            </li>
+            <% } %>
+    </script>
+
+    <script type="text/template" id="tmp1">
+
+        {{each result }}
+        <li> {{ $value.word }} </li>
+        {{/each}}
+
+    </script>
+
+    <script>
+        $('input').on('input', function() {
+            $.ajax({
+                url: 'https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word,obdata&word=' + $(this).val(),
+                dataType: 'jsonp',
+                success: function(data) {
+                    console.log(data)
+                    var html = template('tmp1', data)
+                    console.log(html)
+                    $('#box').html(html)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

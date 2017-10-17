@@ -1,0 +1,13 @@
+能够理解HTTP协议
+
+能够理解同步和异步的区别
+
+能够创建Ajax对象
+
+能够使用Ajax发送get和post请求
+
+能够解释get和post的区别
+
+能够在服务器端生成JSON数据（PHP）
+
+能够在浏览器中解释JSON数据（JavaScript）
