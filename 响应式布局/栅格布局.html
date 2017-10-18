@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./lib/css/bootstrap.min.css">
+    <style>
+        /* 属性选择器 */
+
+        div[class^="col"] {
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            box-shadow: 0 0 1px #000;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 栅格布局  bootstrap 提供的一套  响应式 移动设备优先 的  流式栅格系统  
+        随着屏幕或视口尺寸增加 系统自动分为最多 12列  包含预定义类 
+
+        本质：媒体查询-->
+
+    <!-- 栅格系统把各种各样的屏幕分成了四类
+            1. 手机   col-xs-*  * 代表几列 *最大是12
+            2. 平板   col-sm-* 
+            3.  普通屏幕 col-md-*
+            4.  超大屏幕  col-lg-*-->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+            <div class="col-md-1 col-xs-1">1</div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-4">2</div>
+            <div class="col-md-2 col-xs-4">2</div>
+            <div class="col-md-2 col-xs-4">2</div>
+            <div class="col-md-2 col-xs-4">2</div>
+            <div class="col-md-2 col-xs-4">2</div>
+            <div class="col-md-2 col-xs-4">2</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xs-4">3</div>
+            <div class="col-md-3 col-xs-4">3</div>
+            <div class="col-md-3 col-xs-4">3</div>
+            <div class="col-md-3 col-xs-12">3</div>
+        </div>
+
+        <!-- 列偏移  -offset-* 向右偏移*格  --> 
+        <div class="row">
+            <div class="col-md-4">4</div>
+            <div class="col-md-4 col-md-offset-1">4</div>
+        </div>
+
+        <!-- 列嵌套 -->
+        <div class="row">
+            <div class="col-md-2 col-md-offset-2">
+                <div class="col-md-3">5</div>
+                <div class="col-md-3">5</div>
+                <div class="col-md-3">5</div>
+                <div class="col-md-3">5</div>
+            </div>
+
+        </div>
+        <!--列顺序 push推  pull拉 -->
+        <div class="row">
+            <div class="col-md-4 col-md-push-3">4</div>
+            <div class="col-md-8 col-md-pull-4">8</div>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="./js/jQuery.min.js"></script>
+    <script src="./lib/css/bootstrap.min.css"></script>
+</body>
+
+</html>
