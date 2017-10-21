@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    p {
+      text-align: justify;
+      height: 10000px;
+    }
+
+    /* 小技巧 */
+    p:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    span {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <p>这是一个寂寞的天,下着无情的雨</p>
+  <p>
+
+    <span>4</span>
+    <span>4</span>
+    <span>4</span>
+    <span>4</span>
+  </p>
+</body>
+</html>
