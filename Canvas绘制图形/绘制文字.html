@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 400;
+        canvas.style.border = '1px solid #ff0000';
+        var context = canvas.getContext('2d');
+
+        context.beginPath();
+        context.moveTo(0,canvas.height/2);
+        context.lineTo(canvas.width,canvas.height/2);
+        context.stroke();
+        context.beginPath();
+        context.moveTo(canvas.width/2,0);
+        context.lineTo(canvas.width/2,canvas.height);
+        context.stroke();
+
+    
+        //绘制文字
+
+        //修改文字大小 字体
+        context.font = '80px 楷体';
+
+        //修改文字水平对齐方式
+        // context.textAlign = 'left';
+        // context.textAlign = 'right';
+        context.textAlign = 'center';
+        
+        //修改文字垂直对齐方式
+        //设置基线
+        // context.textBaseline = 'top';
+        // context.textBaseline = 'bottom';
+        context.textBaseline = 'middle';
+        
+
+        //填充文字
+        //context.fillText(文字内容，文字左下角的x坐标，文字左下角的Y坐标)
+        
+        context.fillText('骚',canvas.width/2,canvas.height/2);
+
+        //描边文字
+        //context.strokeText(文字内容，文字左下角的x坐标，文字左下角的Y坐标)
+        // context.stroke()
+        
+        //获取文字的宽度
+        // var width = context.measureText(文字内容).width;
+        var text = '骚';
+        var width = context.measureText(text).width;
+        console.log(width);
+    </script>
+</body>
+</html>
