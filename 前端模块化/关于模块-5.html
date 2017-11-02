@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>使用模块进行开发时，需要遵循某些规范，其中 require.js 是AMD规范的一个实现</h2>
+
+    <h2>seajs 是CMD规范的一个实现</h2>
+
+    <h2>由于 require.js 国际化程度，学习使用 require.js</h2>
+    
+    <!-- 引入 require.js -->
+    <script src="./libs/require.js"></script>
+    <script>
+        require.config({
+            baseUrl: './assets',
+            paths: {
+                jquery: 'static/jquery/jquery'
+            },
+            // 通过 shim 可以解决那么不支持模块的第三方类库
+            shim: {}
+        })
+
+        require(['src/index']);
+    </script>
+</body>
+</html>

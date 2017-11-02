@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 1、使用 script 无法控制某个 js 的加载 -->
+    <script src="./js/a.js"></script>
+    <!-- 2、如果 js 文件之间存在依赖关系必须靠 script 的顺序来控制 -->
+    <script src="./js/b.js"></script>
+    <!-- 3、当引入多个文件时，容易引变量的冲突 -->
+    
+    <!-- 总结可知，单纯使用 script 加载 js 存在一定的弊端 -->
+    <!-- 使用 模块 可以对其进行优化 -->
+</body>
+</html>
